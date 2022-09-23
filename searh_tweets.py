@@ -94,13 +94,13 @@ for i in range(len(follower_list)):
         #     time.sleep(15*60)
     print('author_id: ', follower_list[i], 'hashtags: ', hashtags)
 
-    # if not os.path.isfile('data/tweets-hashtags/downloaded_hashtags_extend.csv'):
-    #     df_hashtag.to_csv('data/tweets-hashtags/downloaded_hashtags_extend.csv', index=False, header=True)
-    # else:
-    #     df_hashtag.to_csv('data/tweets-hashtags/downloaded_hashtags_extend.csv', mode='a', index=False, header=False)
-    #     # print('added to csv file')
-    # if not os.path.isfile('data/tweets-hashtags/downloaded_tweets_extend.csv'):
-    #     df_tweet.to_csv('data/tweets-hashtags/downloaded_tweets_extend.csv', index=False, header=True)
-    # else:
-    #     df_tweet.to_csv('data/tweets-hashtags/downloaded_tweets_extend.csv', mode='a', index=False, header=False)
+    if not os.path.isfile('data/1/downloaded_hashtags.csv'):
+        df_hashtag.to_csv('data/1/downloaded_hashtags.csv', index=False, header=True)
+    else:
+        df_hashtag.to_csv('data/1/downloaded_hashtags.csv', mode='a', index=False, header=False)
+        # print('added to csv file')
+    if not os.path.isfile('data/1/downloaded_tweets.csv'):
+        df_tweet.to_csv('data/1/downloaded_tweets.csv', index=False, header=True)
+    else:
+        df_tweet.to_csv('data/tweets-hashtags/downloaded_tweets.csv', mode='a', index=False, header=False)
     print('downloaded total tweets: ', tweet_count, '\n\n\n\n')
