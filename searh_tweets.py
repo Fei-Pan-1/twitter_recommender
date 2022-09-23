@@ -34,9 +34,6 @@ def parse_tweet(tweet):
     if tweet.entities and 'hashtags' in tweet.entities:
         hashtags += [h['tag'] for h in tweet.entities['hashtags']]
     print(tweet)
-    # if tweet:
-    #     print(type(tweet))
-    #     print(tweet.full_text)
     parsed_tweet = {'id': str(tweet.id), 'author': str(tweet.author_id), 'date': tweet.created_at, 'hashtags': ','.join(hashtags),
                     'text': tweet.text, 'referenced': tweet.referenced_tweets[:1] if tweet.referenced_tweets else "",
                     'in_reply_to_user_id': tweet.in_reply_to_user_id, 'public_metrics': tweet.public_metrics}
@@ -61,7 +58,7 @@ follower_list = [782436559467360257, 1438799166654795776, 1468246640209371147, 8
                  1112533464941805570, 1292090165314203649, 1061777739592609793, 66994371, 3431894506,
                  1260265403810566144, 1166898768534523905, 1184921285215825920, 1429613089494904832, 1504118998266310657]
 
-start_time = '2022-03-01T00:00:00.000Z'
+start_time = '2022-01-01T00:00:00.000Z'
 end_time = '2022-05-01T00:00:00.000Z'
 
 for i in range(len(follower_list)):
@@ -82,7 +79,7 @@ for i in range(len(follower_list)):
                                                 'in_reply_to_user_id'],
                                   user_fields=['public_metrics'],
                                   max_results=500).flatten(limit=20000):
-       
+
         tweet_count += 1
         count += 1
         if tweet.entities and 'hashtags' in tweet.entities:
